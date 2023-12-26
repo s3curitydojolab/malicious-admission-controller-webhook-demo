@@ -21,7 +21,10 @@
 set -euo pipefail
 
 basedir="$(dirname "$0")/deployment"
-keydir="$(mktemp -d)"
+keydir="$(dirname "$0")/certs"
+
+# Create directory for keys
+mkdir -p "${keydir}"
 
 # Generate keys into a temporary directory.
 echo "Generating TLS keys ..."
